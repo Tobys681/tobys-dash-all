@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitty Vlog</title>
+
+    <!-- Google Sign-In -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+        }
+
+        header {
+            background: #ff8fb1;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .layout {
+            display: flex;
+        }
+
+        aside {
+            width: 200px;
+            background: white;
+            border-right: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        aside button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+        }
+
+        .card h3 {
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        #uploadBox {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            padding: 8px;
+            margin-top: 8px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Kitty Vlog</h2>
+
+    <div>
+        <button id="createBtn" disabled>Create</button>
+        <div id="g_id_onload"
+             data-client_id="YOUR_GOOGLE_CLIENT_ID"
+             data-callback="onSignIn">
+        </div>
+        <div class="g_id_signin"></div>
+    </div>
+</header>
+
+<div class="layout">
+
+    <aside>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('videos')">Videos</button>
+        <button onclick="showPage('scrolls')">Scrolls</button>
+        <button onclick="showPage('streams')">Streams</button>
+    </aside>
+
+    <main>
+
+        <div id="uploadBox" class="hidden">
+            <h3>Create a Video</h3>
+            <input type="text" id="videoTitle" placeholder="Video name">
+            <input type="file" accept="video/*">
+            <p>This is a static demo. Uploads are not saved.</p>
+        </div>
+
+        <section id="home">
+            <h3>Recommended</h3>
+            <div class="grid" id="homeGrid"></div>
+        </section>
+
+        <section id="videos" class="hidden">
+            <h3>Videos</h3>
+            <div class="grid" id="videoGrid"></div>
+        </section>
+
+        <section id="scrolls" class="hidden">
+            <h3>Scrolls</h3>
+            <div class="grid" id="scrollGrid"></div>
+        </section>
+
+        <section id="streams" class="hidden">
+            <h3>Streams</h3>
+            <div class="grid" id="streamGrid"></div>
+        </section>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

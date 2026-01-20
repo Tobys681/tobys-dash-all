@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+}
+
+.topbar {
+    background: #ff8fb1;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.layout {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    background: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar button {
+    padding: 10px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.content {
+    padding: 20px;
+    width: 100%;
+}
+
+.page.hidden {
+    display: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card video {
+    width: 100%;
+}
+
+.card h3 {
+    font-size: 16px;
+    padding: 10px;
+}
